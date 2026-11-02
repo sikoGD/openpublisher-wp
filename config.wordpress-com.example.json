@@ -1,0 +1,20 @@
+{
+  "wordpress": {
+    "api_base": "https://public-api.wordpress.com/wp/v2/sites/YOUR_SITE_ID",
+    "auth_mode": "wordpress_com_oauth"
+  },
+  "feeds": [
+    {"name": "Your trusted RSS source", "url": "https://example.org/feed.xml"}
+  ],
+  "editorial": {
+    "provider": "template",
+    "model": "gpt-5-mini",
+    "max_output_tokens": 1200,
+    "max_cost_usd": 0,
+    "style": "neutral and evidence-led",
+    "source_quality_policy": "review_all",
+    "lookback_days": 10,
+    "max_sources": 12,
+    "language": "en"
+  }
+}

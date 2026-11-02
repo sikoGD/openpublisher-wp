@@ -1,0 +1,2 @@
+# Install only when editorial.provider is set to "openai".
+openai>=1.80,<3

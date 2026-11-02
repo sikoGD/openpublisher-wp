@@ -1,0 +1,28 @@
+name: Safe draft generation
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '23 13 * * 1-5'
+permissions:
+  contents: read
+  actions: read
+jobs:
+  draft:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Require maintainer configuration
+        run: test -f config.json || { echo 'Add a public-safe config.json with owned feeds and a WordPress API base.'; exit 1; }
+      - name: Restrict scheduled generation to the free template provider
+        run: python -c "import json; c=json.load(open('config.json', encoding='utf-8')); assert c.get('editorial', {}).get('provider', 'template') == 'template', 'Scheduled workflow supports template provider only'"
+      - name: Generate unreviewed draft
+        run: python -m openpublisher --config config.json run --output-dir output
+      - uses: actions/upload-artifact@v4
+        with:
+          name: editorial-review-${{ github.run_id }}
+          path: output/*.json
+          if-no-files-found: error
+          retention-days: 14

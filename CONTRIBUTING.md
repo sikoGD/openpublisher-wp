@@ -1,3 +1,3 @@
 # Contributing
 
-We welcome focused improvements to configuration, feed parsing, WordPress compatibility, tests, reliability and documentation. Use mock endpoints and synthetic posts in automated tests. Never include credentials, personal information, real users' unpublished articles or proprietary content. Open an issue to discuss major changes.
+All improvements should stay site-neutral. Do not commit API keys, user tokens, client secrets, domain-specific credentials, scraped private data, copied news articles or unauthorized images. Include synthetic test data and document any network dependency. Keep generated articles in reviewable draft mode until a human editor verifies them.

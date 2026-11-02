@@ -1,0 +1,12 @@
+{
+  "sources": [
+    {
+      "publisher": "Demo Publisher",
+      "title": "An example community coding event is announced",
+      "url": "https://example.org/sample-announcement",
+      "summary": "Synthetic test data only. Do not publish this as real news.",
+      "published_at": "2026-11-02T08:00:00+00:00"
+    }
+  ],
+  "feed_errors": []
+}

@@ -1,3 +1,3 @@
 # Security
 
-Never commit WordPress application passwords, OAuth credentials or tokens. Avoid posting secret-bearing logs or unpublished content in public issues. Report vulnerabilities privately to the maintainer via their GitHub profile. Auto-publishing must remain disabled until explicitly configured and reviewed.
+Never paste credentials into issues or PRs. If possible, report credential exposure or network/SSRF concerns via private vulnerability reporting. Revoke leaked WordPress application passwords immediately. The software requires HTTPS, isolates secrets in environment variables, and defaults to a no-network dry run for publication, but it has not undergone a professional security audit.

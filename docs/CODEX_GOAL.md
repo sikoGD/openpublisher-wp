@@ -1,15 +1,14 @@
-# Codex goal: complete Open Publisher for WordPress OSS import
+# Codex goal � generalized self-hosted/WordPress.com publishing platform
 
-This is a clean public version of a private ExtraSouls publishing automation. NEVER copy private site identifiers, tokens, application passwords, sensitive configuration, or the original repository's private history.
+Use `sikoGD/extrasouls-publisher` as **private design reference only**, never change or publish that repository, production website credentials or private editorial data. Work only in this new public starter.
 
-1. Import `openpublisher-wordpress-oss-starter.zip` into the root of this repository, without its parent folder. Reconcile the MIT license and .gitignore, replacing the placeholder README.
-2. Run `python -m unittest discover -s tests -v`. Tests must work with synthetic data and without network credentials.
-3. Support configurable feeds, editorial categories and site identity instead of hardcoded ExtraSouls settings.
-4. Support WordPress REST API and, separately, WordPress.com using each documented authentication flow; test against mocks first.
-5. Require human review by default. Publication, automated schedules and image uploads must be explicit opt-ins.
-6. Add idempotency and topic deduplication, publish-state tracking, safe handling of untrusted feed data and credentials, retries with bounds, and rate limits.
-7. Create a GitHub Actions workflow with minimal permissions and local CLI support; never print secrets.
-8. Update README, CONTRIBUTING, SECURITY, example configurations and CI.
-9. Commit and push at each validated milestone. Do not change private extrasouls-publisher or publish to ExtraSouls during tests.
+1. Keep config independent of any one site; support custom WordPress REST URL, managed WordPress.com OAuth and independently owned RSS sources.
+2. Verify authenticated flows against mocked WordPress.org and WordPress.com APIs, including timeouts, redirects, expired tokens, permissions, and pagination. Never log secrets.
+3. Add an editorial preview/approval queue and site-specific configuration validation. All generated content should remain a draft until a human has fact-checked and approved it.
+4. Introduce a provider interface for OpenAI and optional third-party or external JSON generation without requiring paid providers. Make model, style, source quality policy and price controls explicit.
+5. Add more robust semantic duplicate detection without making unsubstantiated uniqueness claims.
+6. Create a scheduled GitHub Actions pipeline only for safe draft generation and review notification. Do not schedule unreviewed live publishing.
+7. Document setup on self-hosted WordPress, WordPress.com public API proxy and common incompatibilities. Build synthetic integration tests.
+8. Commit with passing tests and changelogs after each milestone, keeping the original ExtraSouls instance independent and unchanged.
 
-Success: newcomers can independently install/configure, preview drafts, and safely publish to their own WordPress after explicit approval.
+Deliver a clean release candidate suitable for community contribution, not an insecure shared multi-tenant SaaS.

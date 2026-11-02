@@ -1,11 +1,8 @@
 __pycache__/
-*.py[cod]
+*.pyc
 .venv/
 .env
-.env.*
-!*.example
 config.json
+output/
 *.log
-sources.json
-existing_posts.json
-copilot-output.txt
+*.sqlite
